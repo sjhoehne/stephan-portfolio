@@ -1,0 +1,158 @@
+Create a single self-contained `index.html` that feels like a premium recruiter-conversion asset for Stephan Hoehne. This is not a student portfolio and not a generic personal site. It should feel like the online presence of a security-cleared, high-agency early-career technical operator who can be trusted in serious environments.
+
+Return only the HTML source. No explanation. No markdown. No external assets, no React, no CDN, no build tools, no multi-file output.
+
+Primary impression
+Within 5 seconds, the viewer should think:
+- real-world security credibility
+- disciplined operator
+- technically literate and execution-oriented
+- trusted with meaningful work
+- strong hire for security, cloud, GRC, or defense-adjacent technical roles
+
+Use these facts exactly
+- Stephan Hoehne
+- Age 21 (background context only; do not make it a visible positioning point)
+- Elk Grove / Sacramento, California
+- California State University, Sacramento
+- B.S. in Management Information Systems
+- Honors Leadership
+- Land & Real Estate Development
+- Graduation: May 2026
+- GPA: 3.964
+- GRC Engineering / Audit & Assessment Intern at Lawrence Livermore National Laboratory
+- Active DOE Q Clearance
+- Built a Python + AWS EC2 security auditing / compliance tool
+- Worked on Tenable-to-Splunk integrations for compliance and security visibility
+- Supported audit work on classified environments through documentation gathering, stakeholder alignment, meeting facilitation, and process streamlining
+- Presented post-quantum cryptography / quantum-readiness strategy to senior leadership
+- Coaches youth football
+- Trains Brazilian Jiu-Jitsu
+
+Narrative to build
+- Bridges security + execution
+- Bridges compliance + automation
+- Bridges business + technology
+- Combines national-lab credibility with founder-like ownership
+- Disciplined, coachable, sharp, and already trusted with real work
+
+Recruiter lens
+Make every section answer one question:
+- Why should I keep reading?
+- Has he done real work?
+- Can he build or improve systems?
+- Can he communicate and lead?
+- Does he have discipline and upside?
+- How do I contact him now?
+
+Visual direction
+- Quietly elite, technical, and precise
+- Dark graphite / deep navy / muted cyan / subdued gold
+- Handcrafted, structured, confident
+- Use one signature motif: a credibility rail, systems grid, or abstract signal architecture
+- Strong typography, premium spacing, restrained motion, excellent contrast
+- No portfolio clichés: no stock photos, no avatar dependence, no code rain, no startup blobs, no giant glass cards, no progress bars, no emoji, no fake command-line gimmicks
+- This should feel like a serious defense-tech / national-lab caliber candidate presence, not a campus website
+
+Content architecture
+Use sharp section labels such as:
+- Hero
+- Operating Profile
+- Experience
+- Selected Work
+- Security / Cloud / Tooling
+- Leadership Under Pressure
+- Education
+- Contact
+- Footer
+
+Hero
+- Strong original headline, not generic
+- One-line positioning sentence
+- CTAs: View Work, Contact, Resume
+- Credibility chips: DOE Q Cleared, LLNL Intern, Sacramento State, 3.964 GPA, May 2026
+- Tasteful “Open to 2026 full-time opportunities” signal
+- No photo required
+- The hero should feel more like a serious candidate being fast-tracked than a student introducing himself
+
+Operating Profile
+- 70–100 words max
+- Terse, smart, evidence-led
+- Emphasize judgment, systems thinking, security awareness, technical initiative, and leadership presence
+- No “passionate,” “hardworking,” “results-driven,” or other empty filler
+
+Experience
+- Lawrence Livermore National Laboratory is the centerpiece
+- Do not invent extra employers, dates, or metrics
+- Use crisp bullets showing:
+  - GRC / audit & assessment work
+  - Python / AWS automation
+  - Tenable-to-Splunk visibility work
+  - audit support in classified environments
+  - stakeholder coordination and facilitation
+  - presenting technical strategy to leadership
+- Reference classified work carefully and professionally
+- If dates are unknown, use “Current” or omit exact ranges
+
+Selected Work
+Feature 3 serious initiatives/workstreams:
+1. Python / AWS EC2 Security Auditing Tool
+2. Tenable-to-Splunk Compliance Visibility Work
+3. Post-Quantum Cryptography / Quantum-Readiness Strategy Presentation
+
+For each card show:
+- what it is
+- tech / domain tags
+- why it matters
+- optional placeholder actions only if tasteful
+- no fake repos, fake links, fake scope, or fake metrics
+
+Security / Cloud / Tooling
+Group only fact-supported skills into clear categories:
+- Security & Compliance
+- Cloud & Automation
+- Monitoring / Data / Tooling
+- Programming / Scripting
+- Leadership / Collaboration
+
+Leadership Under Pressure
+- Youth football coaching
+- Brazilian Jiu-Jitsu
+- Frame as proof of mentorship, composure, resilience, discipline, and leadership under pressure
+- Keep it polished and professional
+
+Education
+- California State University, Sacramento
+- B.S. in Management Information Systems
+- Honors Leadership
+- Land & Real Estate Development
+- GPA 3.964
+- May 2026 graduation
+- Understated academic excellence, not bragging
+
+Contact
+- Placeholders for email, LinkedIn, GitHub, Resume
+- Add copy-email interaction
+- Use TODO comments rather than fabricated links
+- Write a recruiter-friendly CTA for security, cloud, GRC, and technical roles
+
+Copy standard
+- More operator than student
+- More evidence than adjectives
+- Calm, sharp, premium, recruiter-scannable
+- No exaggeration
+- No fake claims
+- No filler sentences that do not add signal
+
+Build quality
+- Semantic HTML
+- Sticky nav, active section highlight, smooth scrolling
+- Accessible, keyboard-friendly, high contrast, skip link, reduced motion support
+- Clean CSS variables, system font stack, clear comments
+- Lightweight JavaScript only
+- Include title, meta description, theme-color, inline SVG favicon, and basic social meta tags
+
+Final standard
+The site should feel like a candidate a recruiter forwards internally with: “worth an interview.”
+
+Output only the complete `index.html`.

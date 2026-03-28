@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stephan Hoehne | Security &amp; GRC Engineer</title>
+  <meta name="description" content="GRC Engineering intern at Lawrence Livermore National Laboratory, formerly NNSA Cybersecurity Analyst. Building compliance infrastructure across 10,000+ enterprise systems. Available May 2026." />
+  <meta name="theme-color" content="#09090b" />
+  <meta property="og:title" content="Stephan Hoehne | Security &amp; GRC Engineer" />
+  <meta property="og:description" content="GRC Engineering intern at LLNL, formerly NNSA. Axonius, Python, AWS, NIST RMF, compliance automation. Available May 2026." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111113'/><text x='16' y='21' text-anchor='middle' font-size='14' font-weight='800' font-family='system-ui' fill='%23C9A84C'>SH</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#09090b;--surface:#111113;--card:#18181b;
+      --border:#27272a;--border-h:#3f3f46;
+      --text:#fafafa;--text-2:#a1a1aa;--text-3:#71717a;
+      --accent:#C9A84C;--accent-h:#E8C76A;--accent-soft:rgba(201,168,76,.07);--accent-border:rgba(201,168,76,.22);
+      --gold:#C9A84C;--gold-soft:rgba(201,168,76,.07);--gold-border:rgba(201,168,76,.22);
+      --green:#22c55e;
+      --nav-h:64px;--max:1120px;--r:8px;--r-lg:12px;
+      --ease:.25s cubic-bezier(.4,0,.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+      .fade-up{opacity:1!important;transform:none!important}
+    }
+    body{background:var(--bg);color:var(--text-2);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none;transition:color var(--ease)}
+    a:hover{color:var(--accent-h)}
+    img{display:block;max-width:100%}
+    ul{list-style:none}
+
+    /* ═══ SKIP ═══ */
+    .skip{position:absolute;top:-100%;left:1rem;background:var(--accent);color:#000;padding:.5rem 1rem;border-radius:var(--r);font-weight:600;z-index:9999;transition:top var(--ease)}
+    .skip:focus{top:1rem;color:#000}
+
+    /* ═══ NAV ═══ */
+    nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(9,9,11,.7);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid var(--border);z-index:1000}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;height:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:.95rem;font-weight:700;color:var(--text);letter-spacing:-.02em}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:.15rem;align-items:center}
+    .nav-links a{font-size:.78rem;font-weight:500;color:var(--text-3);padding:.4rem .7rem;border-radius:6px;transition:color var(--ease),background var(--ease)}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);background:none}
+    .nav-cta{background:var(--accent-soft)!important;color:var(--accent)!important;border:1px solid var(--accent-border)}
+    .nav-cta:hover{background:var(--accent)!important;color:#000!important}
+    .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;padding:0;align-items:center}
+    .hamburger span{display:block;width:18px;height:2px;background:var(--text-2);border-radius:2px;transition:all .3s ease}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* ═══ SCROLL ANIMATIONS ═══ */
+    .fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+    .fade-up.d1{transition-delay:.1s}.fade-up.d2{transition-delay:.2s}.fade-up.d3{transition-delay:.3s}
+
+    /* ═══ SECTIONS ═══ */
+    main{padding-top:var(--nav-h)}
+    section[id]{scroll-margin-top:15vh}
+    .section{max-width:var(--max);margin:0 auto;padding:7rem 2rem}
+    .section-label{font-weight:300;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+    .section-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:var(--text);letter-spacing:-.035em;line-height:1.15}
+    .section-line{width:48px;height:3px;border-radius:2px;margin:1.25rem 0 3rem;background:var(--gold)}
+
+    /* ═══ CHIPS ═══ */
+    .chip-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+    .chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;font-size:.7rem;font-weight:500;letter-spacing:.03em;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text-3);white-space:nowrap;font-family:'Inter',sans-serif}
+    .chip--gold{border-color:var(--gold-border);background:var(--gold-soft);color:var(--gold)}
+    .chip--secondary{border-color:var(--border);background:rgba(255,255,255,.03);color:var(--text-3)}
+    .tag{font-size:.65rem;font-weight:500;letter-spacing:.04em;padding:.2rem .6rem;border-radius:4px;background:var(--gold-soft);color:var(--gold);border:1px solid var(--gold-border)}
+
+    /* ═══ HERO ═══ */
+    #hero{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:center}
+    .hero-photo-wrap{position:absolute;top:0;right:0;width:44%;height:100%;z-index:1}
+    .hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
+    .hero-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,rgba(9,9,11,.5) 30%,transparent 55%),linear-gradient(to top,var(--bg) 0%,transparent 30%),linear-gradient(to bottom,rgba(9,9,11,.5) 0%,transparent 15%);pointer-events:none}
+    .hero-content{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:calc(var(--nav-h) + 4rem) 2rem 4rem}
+    .hero-eyebrow{font-weight:300;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem}
+    .hero-eyebrow::before{content:'';width:32px;height:2px;background:var(--gold);border-radius:1px}
+    .hero-name{font-size:clamp(3rem,11vw,9rem);font-weight:900;line-height:.88;letter-spacing:-.055em;color:var(--text);text-transform:uppercase;margin-bottom:1.5rem}
+    .hero-role{font-size:clamp(.95rem,1.8vw,1.15rem);font-weight:400;color:var(--text-2);margin-bottom:1rem;line-height:1.6;max-width:520px}
+    .hero-role strong{color:var(--text);font-weight:700}
+    .hero-tagline{font-size:clamp(1.1rem,2.2vw,1.4rem);font-weight:700;color:var(--text);margin-bottom:2rem;letter-spacing:-.02em;line-height:1.4;max-width:480px}
+    .hero-avail{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:400;color:var(--text-3);margin-bottom:2rem}
+    .avail-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(34,197,94,.15);animation:pulse-dot 2.5s ease infinite}
+    @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.15)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2.5rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;border-radius:var(--r);font-size:.88rem;font-weight:600;cursor:pointer;border:none;transition:all var(--ease);text-decoration:none!important;font-family:'Inter',sans-serif}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-h));color:#000;font-weight:700;box-shadow:0 2px 16px rgba(201,168,76,.25)}
+    .btn-primary:hover{box-shadow:0 4px 24px rgba(201,168,76,.4);transform:translateY(-1px);color:#000}
+    .btn-secondary{background:rgba(255,255,255,.04);color:var(--text);border:1px solid var(--border)}
+    .btn-secondary:hover{border-color:var(--border-h);background:rgba(255,255,255,.06);color:var(--text)}
+
+    /* ═══ ANGLE DIVIDERS ═══ */
+    .angle-divider{line-height:0;margin-top:-1px;position:relative;z-index:2}
+    .angle-divider svg{display:block;width:100%;height:clamp(32px,4vw,56px)}
+
+    /* ═══ ABOUT ═══ */
+    .about-section{background:var(--surface)}
+    .about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:3.5rem;align-items:start}
+    .about-text{font-size:1.05rem;line-height:1.85;color:var(--text-2);max-width:640px}
+    .about-text strong{color:var(--text);font-weight:600}
+    .about-stats{display:flex;flex-direction:column;gap:2rem;padding-top:.5rem}
+    .about-stat-num{font-size:clamp(2.5rem,5vw,3.75rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--gold)}
+    .about-stat-label{font-size:.8rem;font-weight:400;color:var(--text-3);margin-top:.35rem;letter-spacing:.01em}
+
+    /* ═══ EXPERIENCE ═══ */
+    .exp-stack{display:flex;flex-direction:column;gap:1.75rem}
+    .exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:2.25rem 2.25rem 2.25rem 2.5rem;position:relative;overflow:hidden;transition:border-color var(--ease)}
+    .exp-card:hover{border-color:var(--border-h)}
+    .exp-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:0 2px 2px 0}
+    .exp-card.exp--gold::before{background:linear-gradient(to bottom,var(--gold),var(--accent-h))}
+    .exp-header{display:flex;align-items:center;gap:1rem;margin-bottom:.75rem;flex-wrap:wrap}
+    .exp-logo{flex-shrink:0;color:var(--text-3);opacity:.7}
+    .exp-logo-img{height:38px;width:auto;flex-shrink:0;object-fit:contain}
+    .edu-logo-img{height:44px;width:auto;object-fit:contain}
+    .exp-org{font-size:1.15rem;font-weight:700;color:var(--text);letter-spacing:-.02em}
+    .exp-loc{font-size:.75rem;font-weight:400;color:var(--text-3);letter-spacing:.02em}
+    .exp-roles{margin-bottom:1.25rem}
+    .exp-role-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .75rem;margin-bottom:.3rem}
+    .exp-role-title{font-size:.88rem;color:var(--gold);font-weight:600}
+    .exp-role-date{font-size:.72rem;font-weight:400;color:var(--text-3);letter-spacing:.02em}
+    .exp-bullets{display:flex;flex-direction:column;gap:.55rem}
+    .exp-bullets li{position:relative;padding-left:1.2rem;font-size:.9rem;color:var(--text-2);line-height:1.65}
+    .exp-bullets li::before{content:'';position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+    /* ═══ PROJECTS ═══ */
+    .proj-section{background:var(--surface)}
+    .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.5rem}
+    .proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;display:flex;flex-direction:column;gap:.85rem;transition:transform var(--ease),border-color var(--ease),box-shadow var(--ease)}
+    .proj-card:hover{transform:translateY(-4px);border-color:var(--gold-border);box-shadow:0 0 0 1px rgba(201,168,76,.4)}
+    .proj-num{font-size:.65rem;font-weight:400;color:var(--text-3);letter-spacing:.1em}
+    .proj-title{font-size:1.05rem;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1.3}
+    .proj-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+    .proj-desc{font-size:.88rem;color:var(--text-2);line-height:1.7;flex:1}
+
+    /* ═══ SKILLS ═══ */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+    .skill-group{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem}
+    .skill-group-title{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.15rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .skill-list{display:flex;flex-direction:column;gap:.5rem}
+    .skill-item{font-size:.88rem;color:var(--text-2);display:flex;align-items:center;gap:.65rem}
+    .skill-item::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;opacity:.5}
+
+    /* ═══ LEADERSHIP ═══ */
+    .lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .lead-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;transition:border-color var(--ease)}
+    .lead-card:hover{border-color:var(--border-h)}
+    .lead-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.25rem}
+    .lead-sub{font-size:.72rem;font-weight:500;color:var(--gold);letter-spacing:.04em;margin-bottom:.85rem}
+    .lead-text{font-size:.88rem;color:var(--text-2);line-height:1.7}
+    .lead-attrs{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.85rem}
+
+    /* ═══ AWARDS ═══ */
+    .award-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:2.25rem;position:relative;overflow:hidden;transition:border-color var(--ease)}
+    .award-card:hover{border-color:var(--border-h)}
+    .award-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:0 2px 2px 0;background:linear-gradient(to bottom,var(--gold),var(--accent-h))}
+    .award-header{display:flex;align-items:baseline;flex-wrap:wrap;gap:.35rem .75rem;margin-bottom:.35rem}
+    .award-title{font-size:1.05rem;font-weight:700;color:var(--text);letter-spacing:-.01em}
+    .award-place{font-size:.78rem;font-weight:600;color:var(--gold)}
+    .award-context{font-size:.72rem;font-weight:400;color:var(--text-3);letter-spacing:.02em;margin-bottom:1rem}
+    .award-text{font-size:.9rem;color:var(--text-2);line-height:1.7;margin-bottom:1rem}
+    .award-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+
+    /* ═══ EDUCATION ═══ */
+    .edu-section{background:var(--surface)}
+    .edu-stack{display:flex;flex-direction:column;gap:1.5rem}
+    .edu-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:start}
+    .edu-logo{flex-shrink:0;color:var(--text-3);opacity:.6;margin-top:.1rem}
+    .edu-school{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.15rem}
+    .edu-deg{font-size:.92rem;color:var(--gold);margin-bottom:.1rem}
+    .edu-meta{font-size:.72rem;font-weight:400;color:var(--text-3);letter-spacing:.02em;margin-bottom:.75rem}
+    .edu-honors{display:flex;flex-direction:column;gap:.3rem}
+    .edu-honors li{font-size:.85rem;color:var(--text-2);display:flex;align-items:center;gap:.55rem}
+    .edu-honors li::before{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+    .edu-gpa{text-align:right}
+    .edu-gpa-num{font-size:2rem;font-weight:900;line-height:1;letter-spacing:-.03em;background:linear-gradient(135deg,var(--gold),#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .edu-gpa-label{font-size:.65rem;font-weight:400;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:.2rem}
+
+    /* ═══ CONTACT ═══ */
+    .contact-wrap{position:relative;background:var(--bg);border-top:1px solid var(--border);overflow:hidden}
+    .contact-wrap::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(201,168,76,.06),transparent 70%);pointer-events:none}
+    .contact-email{display:block;font-size:clamp(1.2rem,2.8vw,1.65rem);font-weight:600;color:var(--text);margin-bottom:.75rem;transition:color var(--ease);letter-spacing:-.01em}
+    .contact-email:hover{color:var(--gold)}
+    .contact-note{font-size:.9rem;color:var(--text-3);max-width:480px;line-height:1.7;margin-bottom:2rem}
+    .contact-form{display:flex;flex-direction:column;gap:.85rem;max-width:480px}
+    .contact-form input,.contact-form textarea{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.75rem 1rem;font-family:'Inter',sans-serif;font-size:.9rem;color:var(--text);transition:border-color var(--ease);resize:vertical;width:100%}
+    .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--gold)}
+    .contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--text-3)}
+    .contact-form-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.25rem}
+
+    /* ═══ FOOTER ═══ */
+    footer{max-width:var(--max);margin:0 auto;padding:2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem}
+    .footer-name{font-size:.78rem;font-weight:400;color:var(--text-3);letter-spacing:.02em}
+    .footer-copy{font-size:.72rem;color:var(--text-3)}
+
+    /* ═══ TOAST ═══ */
+    .toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--card);border:1px solid var(--gold-border);color:var(--gold);padding:.55rem 1.25rem;border-radius:var(--r);font-size:.82rem;font-weight:500;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease;z-index:5000}
+    .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:768px){
+      .section{padding:5rem 1.25rem}
+      #hero{min-height:100svh}
+      .hero-photo-wrap{width:100%;height:100%}
+      .hero-photo-wrap::after{background:linear-gradient(to top,var(--bg) 35%,rgba(9,9,11,.55) 65%,rgba(9,9,11,.35) 100%)}
+      .hero-content{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 1.25rem 2.5rem}
+      .hero-name{font-size:clamp(2.75rem,14vw,4.5rem)}
+      .hamburger{display:flex}
+      .nav-links{display:none;position:absolute;top:var(--nav-h);left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(9,9,11,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.75rem 1rem;gap:.15rem}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:.65rem .75rem}
+      .nav-inner{padding:0 1.25rem}
+      .about-grid{grid-template-columns:1fr}
+      .about-stats{flex-direction:row;gap:2rem}
+      .edu-card{grid-template-columns:1fr}
+      .edu-logo{display:none}
+      .edu-gpa{text-align:left}
+      .angle-divider svg{height:28px}
+    }
+    @media(max-width:480px){
+      .hero-name{font-size:2.5rem}
+      .about-stats{flex-direction:column;gap:1.5rem}
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to main content</a>
+
+<!-- ═══ NAV ═══ -->
+<nav aria-label="Primary navigation">
+  <div class="nav-inner">
+    <div class="nav-logo">Stephan<span>.</span></div>
+    <button class="hamburger" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#awards">Awards</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <div class="hero-photo-wrap" aria-hidden="true">
+      <img src="headshot.jpg" alt="" />
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Security &amp; GRC Engineering</div>
+      <h1 class="hero-name">Stephan<br>Hoehne</h1>
+      <p class="hero-role">IMPACT Intern at Lawrence Livermore National Laboratory · NNSA · Sac State MIS '26</p>
+      <p class="hero-tagline">I secure the systems that secure the country.</p>
+      <div class="hero-avail"><span class="avail-dot" aria-hidden="true"></span> Open to 2026 full-time opportunities</div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Work</a>
+        <a href="#contact" class="btn btn-secondary">Contact</a>
+      </div>
+      <div class="chip-row" aria-label="Credentials">
+        <span class="chip chip--gold">DOE Q Cleared</span>
+        <span class="chip">LLNL</span>
+        <span class="chip">NNSA</span>
+        <span class="chip">PATH Scholar</span>
+        <span class="chip">3.964 GPA</span>
+        <span class="chip">May 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Angle: bg → surface -->
+  <div class="angle-divider" aria-hidden="true"><svg viewBox="0 0 1440 56" preserveAspectRatio="none"><path d="M0,56 L1440,0 L1440,56 Z" fill="#111113"/></svg></div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <div class="about-section">
+    <section id="about" class="section" style="padding-top:4rem;">
+      <div class="fade-up">
+        <p class="section-label">About</p>
+        <h2 class="section-title">How I work</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+      <div class="about-grid">
+        <div class="fade-up d1">
+          <p class="about-text">
+            I'm 21 and I've already built compliance infrastructure inside <strong>two of the federal government's most critical security organizations</strong>. At LLNL, I architect tooling that covers 10,000+ enterprise systems: Tenable-to-Axonius integrations, AWS compliance dashboards, and automation that saves 20+ hours of manual work. At the NNSA in D.C., I helped run a cyber exercise across five DOE sites and briefed the DCIO on quantum readiness. I lead agile sprints, present to senior leadership, and don't wait to be told what to do next.
+          </p>
+        </div>
+        <div class="fade-up d2">
+          <div class="about-stats">
+            <div>
+              <div class="about-stat-num">10,000+</div>
+              <div class="about-stat-label">enterprise systems secured</div>
+            </div>
+            <div>
+              <div class="about-stat-num">2</div>
+              <div class="about-stat-label">federal security organizations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Angle: surface → bg -->
+  <div class="angle-divider" aria-hidden="true"><svg viewBox="0 0 1440 56" preserveAspectRatio="none"><path d="M0,0 L1440,56 L0,56 Z" fill="#111113"/></svg></div>
+
+  <!-- ═══ EXPERIENCE ═══ -->
+  <section id="experience" class="section">
+    <div class="fade-up">
+      <p class="section-label">Experience</p>
+      <h2 class="section-title">Where I've worked</h2>
+      <div class="section-line" aria-hidden="true"></div>
+    </div>
+    <div class="exp-stack">
+
+      <div class="exp-card exp--gold fade-up d1">
+        <div class="exp-header">
+          <img src="llnl-logo.png" class="exp-logo-img" alt="LLNL" />
+          <div>
+            <div class="exp-org">Lawrence Livermore National Laboratory</div>
+            <div class="exp-loc">Livermore, CA</div>
+          </div>
+        </div>
+        <div class="exp-roles">
+          <div class="exp-role-line">
+            <span class="exp-role-title">GRC Engineering IMPACT Intern</span>
+            <span class="exp-role-date">June 2025 &ndash; Present</span>
+          </div>
+          <div class="exp-role-line">
+            <span class="exp-role-title">Audit &amp; Assessment IMPACT Intern (concurrent)</span>
+            <span class="exp-role-date">Feb 2026 &ndash; Present</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Architected Tenable-to-Axonius integration enabling continuous STIG and CIS compliance validation across 10,000+ enterprise systems.</li>
+          <li>Building Axonius dashboards to detect prohibited software and support 10+ ISSO/SCA workflows during the IASOC launch and SOC standup activities.</li>
+          <li>Built AWS EC2 compliance dashboard measuring 1,326 instances against 5 NIST common control categories.</li>
+          <li>Led sprint planning, retrospectives, and daily scrum as scrum master, delivering a 98.3% ticket completion rate.</li>
+          <li>Supporting audit liaisons across 15+ document requests; building dashboards that automate the annual data call process, saving 20+ hours of data collection.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card exp--gold fade-up d2">
+        <div class="exp-header">
+          <img src="nnsa-logo.png" class="exp-logo-img" alt="NNSA" />
+          <div>
+            <div class="exp-org">National Nuclear Security Administration</div>
+            <div class="exp-loc">Washington, D.C.</div>
+          </div>
+        </div>
+        <div class="exp-roles">
+          <div class="exp-role-line">
+            <span class="exp-role-title">Cybersecurity &amp; Risk Analyst IMPACT Intern</span>
+            <span class="exp-role-date">June 2024 &ndash; May 2025</span>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Helped develop a 10-day Cyber Exercise with 100+ participants, improving incident detection across 5+ DOE sites.</li>
+          <li>Developed a quantum computing research project with org-level next steps; presented findings to the DCIO.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Angle: bg → surface -->
+  <div class="angle-divider" aria-hidden="true"><svg viewBox="0 0 1440 56" preserveAspectRatio="none"><path d="M0,56 L1440,0 L1440,56 Z" fill="#111113"/></svg></div>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <div class="proj-section">
+    <section id="projects" class="section" style="padding-top:4rem;">
+      <div class="fade-up">
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title">What I've built</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+      <div class="proj-grid">
+        <article class="proj-card fade-up d1">
+          <div class="proj-num">01</div>
+          <div class="proj-title">Python / AWS EC2 Security Auditing Tool</div>
+          <div class="proj-tags"><span class="tag">Python</span><span class="tag">AWS EC2</span><span class="tag">NIST</span><span class="tag">GRC</span></div>
+          <p class="proj-desc">Identifies EC2 misconfigurations (public exposure, insecure security group rules) and exports 13 structured compliance findings in JSON and CSV. Built independently to replace slow manual workflows with repeatable, scriptable coverage.</p>
+        </article>
+        <article class="proj-card fade-up d2">
+          <div class="proj-num">02</div>
+          <div class="proj-title">Tenable &rarr; Axonius Compliance Pipeline</div>
+          <div class="proj-tags"><span class="tag">Tenable</span><span class="tag">Axonius</span><span class="tag">STIG / CIS</span><span class="tag">Compliance Automation</span></div>
+          <p class="proj-desc">Integrated Tenable vulnerability scan data into Axonius for continuous STIG and CIS compliance validation across 10,000+ enterprise systems. Supports ISSO/SCA workflows and drives security plan visibility at scale.</p>
+        </article>
+        <article class="proj-card fade-up d3">
+          <div class="proj-num">03</div>
+          <div class="proj-title">Quantum-Readiness Strategy Briefing</div>
+          <div class="proj-tags"><span class="tag">Post-Quantum Crypto</span><span class="tag">NIST PQC</span><span class="tag">DCIO Briefing</span></div>
+          <p class="proj-desc">Researched quantum computing threats to current cryptographic standards. Developed an org-level readiness strategy with algorithm transition timelines; delivered to the DCIO at the NNSA.</p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- Angle: surface → bg -->
+  <div class="angle-divider" aria-hidden="true"><svg viewBox="0 0 1440 56" preserveAspectRatio="none"><path d="M0,0 L1440,56 L0,56 Z" fill="#111113"/></svg></div>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section id="skills" class="section">
+    <div class="fade-up">
+      <p class="section-label">Security / Cloud / Tooling</p>
+      <h2 class="section-title">Technical foundation</h2>
+      <div class="section-line" aria-hidden="true"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group fade-up d1">
+        <div class="skill-group-title">Security &amp; Compliance</div>
+        <ul class="skill-list">
+          <li class="skill-item">NIST RMF</li>
+          <li class="skill-item">STIG / CIS Benchmarks</li>
+          <li class="skill-item">GRC Engineering</li>
+          <li class="skill-item">Audit &amp; Assessment</li>
+          <li class="skill-item">Vulnerability Management</li>
+          <li class="skill-item">CompTIA Security+ (Pursuing)</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-up d2">
+        <div class="skill-group-title">Cloud &amp; Automation</div>
+        <ul class="skill-list">
+          <li class="skill-item">AWS EC2</li>
+          <li class="skill-item">Python</li>
+          <li class="skill-item">Compliance Dashboards</li>
+          <li class="skill-item">Compliance Automation</li>
+          <li class="skill-item">Cloud Security Auditing</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-up d3">
+        <div class="skill-group-title">Monitoring / Data / Tooling</div>
+        <ul class="skill-list">
+          <li class="skill-item">Axonius</li>
+          <li class="skill-item">Tenable</li>
+          <li class="skill-item">Jira</li>
+          <li class="skill-item">Excel</li>
+          <li class="skill-item">PhpMyAdmin</li>
+        </ul>
+      </div>
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Leadership / Collaboration</div>
+        <ul class="skill-list">
+          <li class="skill-item">Agile / Scrum Master</li>
+          <li class="skill-item">Technical Briefing Delivery</li>
+          <li class="skill-item">Stakeholder Communication</li>
+          <li class="skill-item">Cross-functional Coordination</li>
+          <li class="skill-item">Audit Liaison Support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LEADERSHIP ═══ -->
+  <section id="leadership" class="section" style="padding-top:2rem;">
+    <div class="fade-up">
+      <p class="section-label">Leadership &amp; Beyond</p>
+      <h2 class="section-title">Outside the office</h2>
+      <div class="section-line" aria-hidden="true"></div>
+    </div>
+    <div class="lead-grid">
+      <div class="lead-card fade-up d1">
+        <div class="lead-title">Offensive Coordinator, Franklin Wildcats</div>
+        <div class="lead-sub">Youth Football &bull; July 2021 &ndash; Present</div>
+        <p class="lead-text">Mentored 100+ athletes as Offensive Coordinator for a youth football program. Builds game plans under competitive pressure and develops the communication habits that come from leading people, not managing tasks.</p>
+        <div class="lead-attrs"><span class="tag">Mentorship</span><span class="tag">Strategy</span><span class="tag">Composure</span></div>
+      </div>
+      <div class="lead-card fade-up d2">
+        <div class="lead-title">Brazilian Jiu-Jitsu</div>
+        <div class="lead-sub">SF BJJ Tour Gold Medalist &bull; Active Competitor</div>
+        <p class="lead-text">Gold medalist at the San Francisco Brazilian Jiu-Jitsu Tour. Trains regularly in a discipline that demands methodical problem-solving and composure under direct adversarial pressure.</p>
+        <div class="lead-attrs"><span class="tag">Discipline</span><span class="tag">Resilience</span><span class="tag">Adversarial Thinking</span></div>
+      </div>
+      <div class="lead-card fade-up d3">
+        <div class="lead-title">NorCal AngelCon</div>
+        <div class="lead-sub">Team Member &bull; Feb 2025 &ndash; Present</div>
+        <p class="lead-text">Led a 4-student team revamping NorCal AngelCon's website. Contributed to activating 15 new angel investors, collectively supporting $2.6M+ raised for early-stage startups.</p>
+        <div class="lead-attrs"><span class="tag">Team Lead</span><span class="tag">Startup Ecosystem</span><span class="tag">Web Dev</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AWARDS ═══ -->
+  <section id="awards" class="section" style="padding-top:2rem;">
+    <div class="fade-up">
+      <p class="section-label">Awards</p>
+      <h2 class="section-title">Recognition</h2>
+      <div class="section-line" aria-hidden="true"></div>
+    </div>
+    <div class="award-card fade-up d1">
+      <div class="award-header">
+        <div class="award-title">California Wildfire Alert System Assessment</div>
+        <div class="award-place">2nd Place</div>
+      </div>
+      <div class="award-context">Sacramento State Spring Symposium &middot; College of Business &middot; Provost's Award for Research Excellence</div>
+      <p class="award-text">Assessed California's Wildfire Alert System to identify risks and propose solutions. Researched and documented public information on federal alerts, then modeled data and authority flows across multiple systems using STRIDE as a threat modeling framework. Uncovered the lack of strong authentication checks at cellular networks. Recognized for strong research and presentation.</p>
+      <div class="award-tags"><span class="tag">STRIDE</span><span class="tag">Threat Modeling</span><span class="tag">EMS</span><span class="tag">Research</span><span class="tag">Data Flow Analysis</span></div>
+    </div>
+  </section>
+
+  <!-- Angle: bg → surface -->
+  <div class="angle-divider" aria-hidden="true"><svg viewBox="0 0 1440 56" preserveAspectRatio="none"><path d="M0,56 L1440,0 L1440,56 Z" fill="#111113"/></svg></div>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <div class="edu-section">
+    <section id="education" class="section" style="padding-top:4rem;">
+      <div class="fade-up">
+        <p class="section-label">Education</p>
+        <h2 class="section-title">Academic record</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+      <div class="edu-stack">
+        <div class="edu-card fade-up d1">
+          <img src="sacstate-logo.png" class="edu-logo-img" alt="Sacramento State" />
+          <div>
+            <div class="edu-school">California State University, Sacramento</div>
+            <div class="edu-deg">B.S. Business Management &amp; Information Systems</div>
+            <div class="edu-meta">Sacramento, CA &middot; Aug 2024 &ndash; May 2026</div>
+            <ul class="edu-honors">
+              <li>Dean's List</li>
+              <li>Honors College</li>
+              <li>Minor: Honors Leadership, Real Estate &amp; Land Development</li>
+              <li>NNSA PATH Scholarship Recipient</li>
+            </ul>
+          </div>
+          <div class="edu-gpa" aria-label="GPA 3.964"><div class="edu-gpa-num">3.964</div><div class="edu-gpa-label">GPA</div></div>
+        </div>
+        <div class="edu-card fade-up d2">
+          <img src="scc-logo.png" class="edu-logo-img" alt="Sacramento City College" />
+          <div>
+            <div class="edu-school" style="font-size:1rem;">Sacramento City College</div>
+            <div class="edu-deg" style="font-size:.88rem;">A.S.-T. Business Administration</div>
+            <div class="edu-meta">Sacramento, CA &middot; Jan 2023 &ndash; May 2024</div>
+            <ul class="edu-honors"><li>Dean's List</li></ul>
+          </div>
+          <div class="edu-gpa" aria-label="GPA 4.00"><div class="edu-gpa-num" style="font-size:1.5rem;">4.00</div><div class="edu-gpa-label">GPA</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══ CONTACT ═══ -->
+  <div class="contact-wrap">
+    <section id="contact" class="section">
+      <div class="fade-up">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Let's connect</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
+      <div class="fade-up d1">
+        <a href="mailto:stephanjhoehne@yahoo.com" class="contact-email">stephanjhoehne@yahoo.com</a>
+        <p class="contact-note">Available for full-time roles starting May 2026. Open to security engineering, GRC, cloud, and high-trust technical environments.</p>
+        <form id="contact-form" class="contact-form">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <input type="text" name="company" placeholder="Company / Organization (optional)" />
+          <textarea name="message" placeholder="Your message" rows="4" required></textarea>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <div class="contact-form-actions">
+            <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
+            <a href="https://www.linkedin.com/in/stephan-hoehne/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-name">Stephan Hoehne &middot; Elk Grove / Sacramento, CA</div>
+  <div class="footer-copy">&copy; 2026</div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Opening email client...</div>
+
+<script>
+(function(){
+  /* ─── Active nav ─── */
+  var sections=document.querySelectorAll('section[id],#hero');
+  var links=document.querySelectorAll('.nav-links a');
+  var navObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id=e.target.id;
+        links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+id)});
+      }
+    });
+  },{rootMargin:'-35% 0px -60% 0px',threshold:0});
+  sections.forEach(function(s){navObs.observe(s)});
+
+  /* ─── Hamburger ─── */
+  var toggle=document.getElementById('nav-toggle');
+  var nav=document.getElementById('nav-links');
+  toggle.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    toggle.classList.toggle('open',open);
+    toggle.setAttribute('aria-expanded',String(open));
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ─── Scroll animations ─── */
+  var fadeEls=document.querySelectorAll('.fade-up');
+  if(!('IntersectionObserver' in window)){fadeEls.forEach(function(e){e.classList.add('visible')});return}
+  var fadeObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');fadeObs.unobserve(e.target)}
+    });
+  },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+  fadeEls.forEach(function(e){fadeObs.observe(e)});
+})();
+
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var form=e.target;
+  var btn=document.getElementById('submit-btn');
+  var toast=document.getElementById('toast');
+  btn.textContent='Sending...';btn.disabled=true;
+  fetch('https://formspree.io/f/xeepebra',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({
+      name:form.name.value,
+      email:form.email.value,
+      company:form.company.value||'(not provided)',
+      message:form.message.value,
+      _subject:'Portfolio Contact from '+form.name.value
+    })
+  }).then(function(r){
+    if(r.ok){
+      toast.textContent='Message sent successfully';toast.classList.add('on');
+      form.reset();btn.textContent='Send Message';btn.disabled=false;
+      setTimeout(function(){toast.classList.remove('on')},3000);
+    }else{
+      return r.json().then(function(d){throw d});
+    }
+  }).catch(function(){
+    toast.textContent='Something went wrong. Try again.';toast.classList.add('on');
+    btn.textContent='Send Message';btn.disabled=false;
+    setTimeout(function(){toast.classList.remove('on')},3000);
+  });
+});
+</script>
+</body>
+</html>
